@@ -18,7 +18,7 @@ public class MinCostClimbingStairs {
         }
 
         if (size == 1) {
-            return cost[1];
+            return cost[0];
         }
 
         int[] result = new int[size];
