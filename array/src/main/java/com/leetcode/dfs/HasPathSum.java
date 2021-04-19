@@ -27,7 +27,8 @@ public class HasPathSum {
         if (root.left == null && root.right == null) {
             return count + root.val == targetSum;
         }
-
+        String x = "123";
+        x.substring(1,2);
         return checkSum(count + root.val, root.left) || checkSum(count + root.val, root.right);
     }
 }
