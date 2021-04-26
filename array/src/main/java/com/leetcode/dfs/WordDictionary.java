@@ -34,7 +34,6 @@ public class WordDictionary {
             set.add(word);
             map.put(word.length(), set);
         }
-        x.pollFirst();
     }
 
     public boolean search(String word) {
