@@ -61,15 +61,15 @@ public class GetResult {
 
         List<String> tmpList = map.get(key);
         int listSize = tmpList.size();
-        for (int i = 0; i < listSize; i++){
+        for (int i = 0; i < listSize; i++) {
             String tmpKey = tmpList.get(i);
             tmpList.remove(i);
             result.add(tmpKey);
-            if(getResult(tmpKey)) {
+            if (getResult(tmpKey)) {
                 return true;
             }
 
-            result.remove(result.size()-1);
+            result.remove(result.size() - 1);
             tmpList.add(tmpKey);
             Collections.sort(tmpList);
         }
