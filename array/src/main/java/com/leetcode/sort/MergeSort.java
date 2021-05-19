@@ -52,14 +52,7 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        nums = new int[7];
-        nums[0] = 2;
-        nums[1] = 3;
-        nums[2] = 9;
-        nums[3] = 8;
-        nums[4] = 6;
-        nums[5] = 1;
-        nums[6] = 10;
+        nums = new int[] {2,3,9,8,6,1,10};
         mergeSort(0, 6);
 
         for (int i : nums) {
