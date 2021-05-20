@@ -1,5 +1,7 @@
 package com.leetcode.sort;
-
+/*
+最小优先队列与最大优先队列也是通过堆来实现的，其堆排序的基础上，增加了插入新值与增大原有的值，具体逻辑为heapIncreaseKey，maxHeapInsert
+ */
 public class HeapSort {
     private int[] nums;
     private int size;
@@ -41,6 +43,26 @@ public class HeapSort {
             size--;
             maxHeapify(0);
         }
+    }
+
+    private void heapIncreaseKey(Integer i, Integer key) {
+        if (nums[i] > key) {
+            return;
+        }
+
+        nums[i] = key;
+        while(i > 1 && nums[i/2] < nums[i]) {
+            int tmp = nums[i/2];
+            nums[i/2] = nums[i];
+            nums[i] = tmp;
+            i /= 2;
+        }
+    }
+
+    private void maxHeapInsert(Integer key) {
+        size++;
+        nums[size-1] = Integer.MIN_VALUE;
+        heapIncreaseKey(size-1, key);
     }
 
     public static void main(String[] args) {
