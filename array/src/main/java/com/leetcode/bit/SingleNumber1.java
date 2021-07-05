@@ -1,5 +1,10 @@
 package com.leetcode.bit;
 
+/**
+ *
+ * @author leping
+ * @version $Id: SingleNumber1.java, v 0.1 2021-07-04 下午8:03 leping Exp $$
+ */
 public class SingleNumber1 {
     public int singleNumber(int[] nums) {
         int once = 0;
