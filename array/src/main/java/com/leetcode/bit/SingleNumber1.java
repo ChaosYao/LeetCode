@@ -1,7 +1,3 @@
-/**
- * Bilibili.com Inc.
- * Copyright (c) 2009-2021 All Rights Reserved.
- */
 package com.leetcode.bit;
 
 /**
