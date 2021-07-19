@@ -8,53 +8,46 @@ import java.util.Map;
 public class TotalQueens {
     private int result = 0;
     private int n;
-    private Map<Integer, Boolean> map = new HashMap<>();
-
+    Map<Integer, Integer> map = new HashMap<>();
     public int totalNQueens(int n) {
         this.n = n;
-        findQueen(new ArrayList<>(), 0);
+        init();
+        findQueen(0);
         return result;
     }
 
-    private void findQueen(List<String> cur, int row) {
-        if (cur.size() == n) {
+    private void init() {
+        for (int i = 0; i < n; i++) {
+            map.put(i, -1);
+        }
+    }
+
+    private void findQueen(int row) {
+        if (row == n) {
             result++;
             return;
         }
 
         for (int i = 0; i < n; i++) {
-            if (map.containsKey(i) && map.get(i)) {
+            if (map.get(i) != -1 || !isValidQueen(row, i)) {
                 continue;
             }
 
-            if (isValid(cur, row, i)) {
-                String tmp = "";
-                for (int j = 0; j < n; j++) {
-                    if (j == i) {
-                        tmp += "Q";
-                    } else {
-                        tmp += ".";
-                    }
-                }
-
-                cur.add(tmp);
-                map.put(i, true);
-                findQueen(cur, row + 1);
-                cur.remove(cur.size()-1);
-                map.put(i,false);
-            }
+            map.put(i, row);
+            findQueen(row + 1);
+            map.put(i, -1);
         }
     }
 
-    private boolean isValid(List<String> cur, int row, int column) {
-        for (int i = row - 1, j = column - 1; i >=0 && j>=0; j--, i--) {
-            if (cur.get(i).charAt(j) == 'Q') {
+    private boolean isValidQueen(int row, int column) {
+        for (int i = row - 1, j = column - 1; i >=0 && j >= 0 ; i--, j--) {
+            if (map.get(j) == i) {
                 return false;
             }
         }
 
-        for (int i = row - 1, j = column + 1; i >= 0 && j < n; i--, j++) {
-            if (cur.get(i).charAt(j) == 'Q') {
+        for (int i = row - 1, j = column + 1; i >=0 && j < n; i--, j++) {
+            if (map.get(j) == i) {
                 return false;
             }
         }
