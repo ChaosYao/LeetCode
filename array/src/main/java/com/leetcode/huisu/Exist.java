@@ -1,4 +1,8 @@
 package com.leetcode.huisu;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /*
 给定一个 m x n 二维字符网格 board 和一个字符串单词 word 。如果 word 存在于网格中，返回 true ；否则，返回 false 。
 
@@ -16,6 +20,7 @@ public class Exist {
     private String word;
     private char[][] board;
     public boolean exist(char[][] board, String word) {
+        List<String> x= new ArrayList<>();
         int length = board.length;
         int size = board[0].length;
         this.word = word;
